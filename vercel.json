@@ -1,7 +1,6 @@
 {
     "rewrites": [
-        { "source": "/home", "destination": "/src/home/index.html" },
-        { "source": "/zoom", "destination": "/src/zoom/index.html" },
-        { "source": "/", "destination": "/index.html" }
+        { "source": "/home", "destination": "home.html" },
+        { "source": "/", "destination": "index.html" }
     ]
 }

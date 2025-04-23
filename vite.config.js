@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
             input: {
                 main: path.resolve(__dirname, 'index.html'),
-                home: path.resolve(__dirname, 'src/home/index.html'),
-                zoom: path.resolve(__dirname, 'src/zoom/index.html')},
+                home: path.resolve(__dirname, 'home.html'),
+                zoom: path.resolve(__dirname, 'zoom.html')},
             },
         },
     }
