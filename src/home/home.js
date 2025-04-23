@@ -115,6 +115,6 @@ document.getElementById('modo-zoom').addEventListener('click', () => {
         return;
     }
 
-    const url = `../image-zoom/index.html?artist=${selectedId}`;
+    const url = `../zoom/index.html?artist=${selectedId}`;
     window.location.href = url;
 });
