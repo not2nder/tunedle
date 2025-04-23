@@ -3,8 +3,6 @@ import { modoZoom } from '../js/gamemode/zoom.js';
 
 let artistaAtual = new URLSearchParams(window.location.search).get('artist');
 
-document.title = `YEARDROP`
-
 document.querySelector('#app').innerHTML = `
 <div id="carregando" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
   <div class="spinner-border" id="spinner" role="status">
