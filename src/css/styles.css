@@ -86,7 +86,7 @@ img {
 .card {
     background-color: rgba(243, 243, 243, 0.967);
     border: 2px solid black;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.75);
 }
 
 input {
@@ -105,6 +105,10 @@ input {
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+}
+
+button.btn {
+    border: 2px solid black;
 }
 
 a.button {
