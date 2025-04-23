@@ -71,7 +71,7 @@ export function atualizarVidas() {
   vidas.innerHTML = '';
   for (let i = 0; i < tentativas; i++) {
     const li = document.createElement('li');
-    li.innerHTML = '<img class="list-inline-item" src="../assets/heart.png">';
+    li.innerHTML = '<img class="list-inline-item" src="src/assets/heart.png">';
     vidas.appendChild(li);
   }
 }
