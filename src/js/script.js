@@ -48,9 +48,18 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     marcarAdivinhado();
     li.classList.add('list-group-item-success');
     li.textContent = `✔️ ${tentativaUsuario}`;
-    confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 } });
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 },
+      shapes: ['star'],
+    });
     imagem.style.transform = 'scale(1)';
     document.getElementById('proximo-album').style.display = '';
+
+    const audio = document.getElementById('audio-acerto');
+    audio.currentTime = 0; // reinicia o som caso toque mais de uma vez
+    audio.play();
   } else {
     resetarTentativas();
     li.classList.add('list-group-item-danger');
