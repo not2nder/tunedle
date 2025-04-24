@@ -77,7 +77,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   }
 
   tentativasLista.appendChild(li);
-  console.log(tentativas)
   if (tentativas === 0 && !adivinhado) {
     mostrarResposta(resposta);
     document.getElementById('proximo-album').style.display = '';
