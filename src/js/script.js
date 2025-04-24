@@ -1,5 +1,5 @@
 import { FastAverageColor } from 'fast-average-color';
-import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas } from './config/gameConfig.js';
+import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
 import TomSelect from 'tom-select';
 
 export async function exibirCapa(album) {
@@ -35,7 +35,7 @@ export function preencherSelect(albuns) {
 }
 
 export function verificarPalpite(tentativaUsuario, resposta) {
-  if (tentativas < 1) return;
+  if (tentativas < 1 || adivinhado) return;
 
   const imagem = document.getElementById('capa');
   const vidas = document.getElementById('vidas');

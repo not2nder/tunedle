@@ -101,14 +101,9 @@ input {
     justify-content: center;
     font-size: 18px;
     background-color: #dadada;
-    border: 2px solid black;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
-}
-
-button.btn {
-    border: 2px solid black;
 }
 
 a.button {
