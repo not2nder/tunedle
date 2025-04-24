@@ -37,7 +37,7 @@ document.querySelector('#app').innerHTML = `
             <h4 class="mb-3">🎧 Modos de Jogo</h4>
             <div class="py-3">
                 <span>Antes de selecionar um modo, escolha um artista</span>
-                <select id="artist-select" class="tom-select" placeholder="Digite o nome do artista..."></select>
+                <select id="artist-select" class="tom-select" placeholder="🔎 Procure um Artista"></select>
             </div>
 
             <ul class="p-0">

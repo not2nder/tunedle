@@ -31,7 +31,8 @@ document.querySelector('#app').innerHTML = `
     <div class="right-side w-100">
       <div class="card p-3">
         <span>Nome do Álbum:</span>
-        <select id="album-select" class="tom-select" placeholder="Selecione um álbum..."></select>
+        <select id="album-select" class="tom-select" placeholder="🔎 Selecione um álbum...">
+        </select>
       </div> 
       <div class="card p-3 mt-2">
         Seus chutes: 

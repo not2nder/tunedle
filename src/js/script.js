@@ -27,6 +27,7 @@ export function preencherSelect(albuns) {
   new TomSelect('#album-select', {
     maxItems: 1,
     closeAfterSelect: true,
+    hideSelected: true,
     sortField: { field: 'text', direction: 'asc' },
     onChange: value => {
       if (value) verificarPalpite(value, albumAtual.name);
