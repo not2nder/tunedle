@@ -2,14 +2,15 @@ import { FastAverageColor } from 'fast-average-color';
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
 import TomSelect from 'tom-select';
 
+const fac = new FastAverageColor();
+
 export async function exibirCapa(album) {
-  const fac = new FastAverageColor();
   const capa = document.getElementById('capa');
   capa.src = album.images[0].url;
 
   fac.getColorAsync(album.images[0].url).then(cor => {
     document.body.style.backgroundColor = cor.rgba;
-  });
+  })
 }
 
 export function preencherSelect(albuns) {
@@ -17,21 +18,18 @@ export function preencherSelect(albuns) {
   select.innerHTML = '';
   select.tomselect?.destroy();
 
-  for (const album of albuns) {
-    const opt = document.createElement('option');
-    opt.value = album.name;
-    opt.textContent = album.name;
-    select.appendChild(opt);
-  }
+  select.appendChild(new Option('Selecione um álbum...','',true,true));
 
-  new TomSelect('#album-select', {
+  albuns.forEach(album => {
+    const opt = new Option(album.name, album.name);
+    select.appendChild(opt);
+  });
+
+  new TomSelect(select, {
     maxItems: 1,
     closeAfterSelect: true,
     hideSelected: true,
-    sortField: { field: 'text', direction: 'asc' },
-    onChange: value => {
-      if (value) verificarPalpite(value, albumAtual.name);
-    }
+    onChange: value => value && verificarPalpite(value, albumAtual.name),
   });
 }
 
@@ -41,6 +39,9 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   const imagem = document.getElementById('capa');
   const vidas = document.getElementById('vidas');
   const tentativasLista = document.getElementById('tentativas');
+  const audio = document.getElementById('audio-acerto');
+  const select = document.getElementById('album-select').tomselect;
+
   const li = document.createElement('li');
   li.classList.add('list-group-item');
 
@@ -48,37 +49,45 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     marcarAdivinhado();
     li.classList.add('list-group-item-success');
     li.textContent = `✔️ ${tentativaUsuario}`;
+
     confetti({
       particleCount: 150,
       spread: 100,
       origin: { y: 0.6 },
       shapes: ['star'],
     });
+
+    audio.currentTime = 0;
+    audio.play();
+
     imagem.style.transform = 'scale(1)';
     document.getElementById('proximo-album').style.display = '';
+    select.disable();
 
-    const audio = document.getElementById('audio-acerto');
-    audio.currentTime = 0; // reinicia o som caso toque mais de uma vez
-    audio.play();
   } else {
     resetarTentativas();
     li.classList.add('list-group-item-danger');
     li.textContent = `❌ ${tentativaUsuario}`;
+
     if (tentativas >= 1) imagem.style.transform = `scale(${tentativas})`;
+
     vidas.classList.add('shake');
     setTimeout(() => vidas.classList.remove('shake'), 400);
     atualizarVidas();
   }
+
   tentativasLista.appendChild(li);
-  if (tentativas === 0) {
+
+  if (tentativas === 0 && !acertou) {
     mostrarResposta(resposta);
     document.getElementById('proximo-album').style.display = '';
-  }  
+  }
 }
 
 export function atualizarVidas() {
   const vidas = document.getElementById('vidas');
   vidas.innerHTML = '';
+
   for (let i = 0; i < tentativas; i++) {
     const li = document.createElement('li');
     li.innerHTML = '<span>❤</span>';
@@ -88,6 +97,6 @@ export function atualizarVidas() {
 
 export function mostrarResposta(nomeAlbum) {
   const resposta = document.getElementById('resposta');
-  resposta.textContent = `${nomeAlbum}`;
+  resposta.textContent = nomeAlbum;
   resposta.classList.remove('d-none');
 }
