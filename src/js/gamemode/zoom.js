@@ -10,6 +10,7 @@ export async function modoZoom(idArtista) {
     const proximoAlbumBtn = document.getElementById('proximo-album');
     const carregando      = document.getElementById('carregando');
     const conteudo        = document.getElementById('conteudo');
+    const select = document.getElementById('album-select').tomselect;
 
     resposta.classList.add('d-none');
     proximoAlbumBtn.style.display = 'none';
