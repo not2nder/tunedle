@@ -12,18 +12,15 @@ export async function modoZoom(idArtista) {
     const conteudo        = document.getElementById('conteudo');
     const select = document.getElementById('album-select').tomselect;
 
+    if(select) select.enable();
+
     resposta.classList.add('d-none');
     proximoAlbumBtn.style.display = 'none';
-
-    if (tentativas >= 1) {
-        imagem.style.transform = `scale(${tentativas})`;
-    }
 
     if (!albunsAtual || albunsAtual.length === 0) {
         const lista = await getArtistAlbums(idArtista);
         setAlbuns(lista);
     }
-
     // Remover álbum atual da lista p n repetir
     if (albumAtual) {
         const novaLista = albunsAtual.filter(album => album.id !== albumAtual.id);
@@ -32,7 +29,12 @@ export async function modoZoom(idArtista) {
 
     if (!albunsAtual || albunsAtual.length === 0) {
         alert('Você já acertou todos os álbuns desse artista!');
+        select.disable();
         return;
+    }
+    
+    if (tentativas >= 1) {
+        imagem.style.transform = `scale(${tentativas})`;
     }
 
     const novoAlbum = escolherAlbumAleatorio(albunsAtual);
