@@ -62,6 +62,17 @@ export const getArtistAlbums = async (artistId) => {
     }
 };
 
+export async function getArtistInfo(id) {
+    const token = await getSpotifyAccessToken();
+    const res = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return await res.json();
+}
+
+
 export function escolherAlbumAleatorio(albuns) {
     return albuns[Math.floor(Math.random() * albuns.length)];
 }

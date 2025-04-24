@@ -1,5 +1,6 @@
 import { FastAverageColor } from 'fast-average-color';
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
+import { registrarAcerto, registrarErro, registrarPontos } from './config/playerStats.js';
 import TomSelect from 'tom-select';
 
 const fac = new FastAverageColor();
@@ -45,6 +46,8 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   const li = document.createElement('li');
   li.classList.add('list-group-item');
 
+  const artista = albumAtual.artists[0].name;
+
   if (tentativaUsuario === resposta) {
     marcarAdivinhado();
     li.classList.add('list-group-item-success');
@@ -64,6 +67,10 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     document.getElementById('proximo-album').style.display = '';
     select.disable();
 
+    //registrar pontos
+    registrarPontos(artista, tentativas*5);
+    registrarAcerto(artista);
+
   } else {
     resetarTentativas();
     li.classList.add('list-group-item-danger');
@@ -73,13 +80,14 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
     vidas.classList.add('shake');
     setTimeout(() => vidas.classList.remove('shake'), 400);
-    atualizarVidas();
+    atualizarVidas(albumAtual.artists[0].name);
   }
 
   tentativasLista.appendChild(li);
   if (tentativas === 0 && !adivinhado) {
     mostrarResposta(resposta);
     document.getElementById('proximo-album').style.display = '';
+    registrarErro(artista);
   }
 }
 

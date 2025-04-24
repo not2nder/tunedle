@@ -1,5 +1,7 @@
 import '../css/styles.css'
-import { modoZoom } from '../js/gamemode/zoom.js';
+import { modoZoom } from '../js/gamemode/zoomGame.js';
+import { registrarJogo } from '../js/config/playerStats.js';
+import { getArtistInfo } from '../js/spotify/spotify.js';
 
 let artistaAtual = new URLSearchParams(window.location.search).get('artist');
 
@@ -49,9 +51,7 @@ document.querySelector('#app').innerHTML = `
 </div>
 `;
 
-modoZoom(artistaAtual);
-
-document.getElementById('proximo-album').onclick = () => {
-  document.getElementById('tentativas').innerHTML = ''
+getArtistInfo(artistaAtual).then(data => {
   modoZoom(artistaAtual);
-};
+  registrarJogo(data.name);
+})
