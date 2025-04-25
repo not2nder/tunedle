@@ -13,7 +13,12 @@ document.querySelector('#app').innerHTML = `
 </div>
 
 <div id="conteudo" style="display: none;" class="page d-flex flex-column min-vh-100">
-  <main class="container px-3 flex-grow-1">
+  <header class="d-flex">
+    <a href="../../index.html">
+      <img src="src/assets/img/tunedle.png" style="width: 100px">
+    </a>
+  </header>
+  <main class="container px-3 flex-grow-1 py-2">
     <div class="left-side w-100">
       <div class="card p-3">
         <div class="img-wrapper" id="img-wrapper">

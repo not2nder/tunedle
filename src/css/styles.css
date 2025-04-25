@@ -35,6 +35,13 @@ main {
     padding: 2rem 0;
 }
 
+header {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 0.5rem 2rem;
+}
+
 .left-side,
 .right-side {
     flex: 1;
@@ -44,12 +51,15 @@ main {
     .container {
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
     }
 
     .left-side,
     .right-side {
         width: 100%;
+    }
+    header {
+        align-items: center;
     }
 }
 
