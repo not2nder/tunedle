@@ -1,17 +1,22 @@
-import { FastAverageColor } from 'fast-average-color';
+import Colorthief from 'colorthief';
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
 import { registrarAcerto, registrarErro, registrarPontos } from './config/playerStats.js';
 import TomSelect from 'tom-select';
 
-const fac = new FastAverageColor();
-
 export async function exibirCapa(album) {
   const capa = document.getElementById('capa');
+  capa.crossOrigin = 'anonymous';
   capa.src = album.images[0].url;
 
-  fac.getColorAsync(album.images[0].url).then(cor => {
-    document.body.style.backgroundColor = cor.rgba;
-  })
+  capa.onload = async () => {
+    const colorthief = new Colorthief();
+    const cor = await colorthief.getPalette(capa)[3];
+    const [r,g,b] = cor;
+    const corLight = `rgb(${Math.min(r+40,255)},${Math.min(g+40,255)},${Math.min(b+40,255)})`
+    const corBase = `rgb(${cor.join(',')})`;
+
+    document.body.style.background = `linear-gradient(0deg, ${corBase},${corLight})`;
+  }
 }
 
 export function preencherSelect(albuns) {
@@ -35,7 +40,7 @@ export function preencherSelect(albuns) {
 }
 
 export function verificarPalpite(tentativaUsuario, resposta) {
-  if (tentativas < 1 || adivinhado) return;
+  if (adivinhado || tentativas <=0) return;
 
   const imagem = document.getElementById('capa');
   const vidas = document.getElementById('vidas');
@@ -93,13 +98,16 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
 export function atualizarVidas() {
   const vidas = document.getElementById('vidas');
-  vidas.innerHTML = '';
+  const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < tentativas; i++) {
     const li = document.createElement('li');
     li.innerHTML = '<span>❤</span>';
-    vidas.appendChild(li);
+    fragment.appendChild(li);
   }
+
+  vidas.innerHTML = '';
+  vidas.appendChild(fragment);
 }
 
 export function mostrarResposta(nomeAlbum) {

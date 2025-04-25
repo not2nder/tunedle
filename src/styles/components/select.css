@@ -1,0 +1,24 @@
+.tom-select .ts-control {
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.tom-select.open .ts-control {
+    border-color: black;
+}
+
+.tom-select .ts-dropdown {
+    background-color: white;
+    margin: 0;
+}
+
+.tom-select .option {
+    padding: 8px 12px;
+    color: black;
+    cursor: pointer;
+}
+
+.tom-select .option:nth-child(even) {
+    background-color: rgba(102, 102, 102, 0.1);
+}

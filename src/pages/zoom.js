@@ -1,4 +1,4 @@
-import '../css/styles.css'
+import '../styles/global.css';
 import { modoZoom } from '../js/gamemode/zoomGame.js';
 import { registrarJogo } from '../js/config/playerStats.js';
 import { getArtistInfo } from '../js/spotify/spotify.js';

@@ -1,0 +1,10 @@
+@import 'base/reset.css';
+
+@import 'components/buttons.css';
+@import 'components/footer.css';
+@import 'components/card.css';
+@import 'components/select.css';
+
+@import 'layout/page.css';
+
+@import 'animation/animation.css';
