@@ -8,6 +8,6 @@
 }
 
 .easy {
-    background: linear-gradient(0deg,rgba(9, 174, 95, 1) 0%, rgb(16, 195, 111) 100%);
+    background-color: rgb(16, 195, 111);
     color: #fff !important;
 }
