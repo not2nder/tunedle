@@ -7,7 +7,6 @@ document.querySelector('#app').innerHTML = `
   <div class="page d-flex flex-column min-vh-100" style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
     <main class="container px-3 flex-grow-1">
       <div class="row">
-        <!-- Texto explicativo à esquerda -->
         <div class="col-md-6 mb-4">
           <div class="card p-4 d-flex flex-column justify-content-between">
             <div>
