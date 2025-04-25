@@ -12,7 +12,7 @@ export async function exibirCapa(album) {
     const colorthief = new Colorthief();
     const cor = await colorthief.getPalette(capa)[3];
     const [r,g,b] = cor;
-    const corLight = `rgb(${Math.min(r+40,255)},${Math.min(g+40,255)},${Math.min(b+40,255)})`
+    const corLight = `rgb(${Math.min(r+30,200)},${Math.min(g+30,200)},${Math.min(b+30,200)})`
     const corBase = `rgb(${cor.join(',')})`;
 
     document.body.style.background = `linear-gradient(0deg, ${corBase},${corLight})`;

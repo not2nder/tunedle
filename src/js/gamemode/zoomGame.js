@@ -1,6 +1,6 @@
-import {setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo} from '../config/gameConfig.js';
-import {preencherSelect, exibirCapa, atualizarVidas} from '../script.js';
-import {getArtistAlbums, escolherAlbumAleatorio} from '../spotify/spotify.js';
+import {setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo} from '@js/config/gameConfig.js';
+import {preencherSelect, exibirCapa, atualizarVidas} from '@js/script.js';
+import {getArtistAlbums, escolherAlbumAleatorio} from '@js/spotify/spotify.js';
 
 export async function modoZoom(idArtista) {
     inicioJogo();
