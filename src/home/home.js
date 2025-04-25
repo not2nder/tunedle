@@ -4,7 +4,7 @@ import '../css/styles.css';
 import TomSelect from 'tom-select';
 
 document.querySelector('#app').innerHTML = `
-  <div class="page d-flex flex-column min-vh-100" style="background: linear-gradient(135deg, #0f3443, #34e89e)">
+  <div class="page d-flex flex-column min-vh-100" style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
     <main class="container px-3 flex-grow-1">
       <div class="row">
         <!-- Texto explicativo à esquerda -->
