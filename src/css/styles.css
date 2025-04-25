@@ -96,7 +96,12 @@ img {
 .card {
     background-color: rgba(243, 243, 243, 0.967);
     border: 2px solid black;
-    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.31);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
 }
 
 input {
@@ -112,12 +117,12 @@ input {
     flex-direction: column;
     user-select: none;
     color: #fff !important;
-    background-color: #06ff49 !important;
+    background-color: #00cc66 !important;
     border-color: #000500;
     border-radius: 0.4rem;
     border-width: 1px;
-    box-shadow: 0px 2px 4px rgb(0 0 0 / 98%);
-    text-shadow: 1px 1px 5px #000000db;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.649);
+    text-shadow: 1px 1px 4px #000000db;
 }
 
 a.button {

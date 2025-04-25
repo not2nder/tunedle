@@ -15,7 +15,7 @@ document.querySelector('#app').innerHTML = `
 <div id="conteudo" style="display: none;" class="page d-flex flex-column min-vh-100">
   <header class="d-flex">
     <a href="../../index.html">
-      <img src="src/assets/img/tunedle.png" style="width: 100px">
+      <img src="https://yovqqneytdwmmfelyboj.supabase.co/storage/v1/object/sign/img/logo/tunedle_logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InN0b3JhZ2UtdXJsLXNpZ25pbmcta2V5X2I5NGZhMGIzLTBjMWQtNGM3MC1iZmQ4LTkxOWUzM2NiZmIxYyJ9.eyJ1cmwiOiJpbWcvbG9nby90dW5lZGxlX2xvZ28ucG5nIiwiaWF0IjoxNzQ1NTM5ODI3LCJleHAiOjE3NzcwNzU4Mjd9.dYicFD1lGu8JgPZRgU6ampoN3VPwmkXCMGldLXJSCa4" style="width: 100px">
     </a>
   </header>
   <main class="container px-3 flex-grow-1 py-2">
