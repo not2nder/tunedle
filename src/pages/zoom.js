@@ -11,9 +11,10 @@ document.querySelector('#app').innerHTML = `
     <span class="visually-hidden">Carregando...</span>
   </div>
 </div>
+
 <div id="conteudo" style="display: none;" class="page d-flex flex-column min-vh-100">
-  <main class="container px-3 flex-grow-1 py-2">
-    <div class="left-side w-100">
+  <main class="page-container flex-grow-1">
+    <div class="left-side">
       <div class="card p-3">
         <div class="img-wrapper" id="img-wrapper">
           <img id="capa" alt="Capa do álbum">
@@ -29,28 +30,28 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
 
-    <div class="right-side w-100">
+    <div class="right-side">
       <div class="card p-3">
         <span>Nome do Álbum:</span>
         <select id="album-select" class="tom-select" placeholder="🔎 Selecione um álbum...">
         </select>
       </div> 
-      <div class="card p-3 mt-2 chutes">
+      <div class="card p-3 mt-2 chutes mb-0">
         Seus chutes: 
         <ul id="tentativas" class="list-group"></ul>
       </div>
     </div>
   </main>
-  <footer class="d-flex flex-column align-items-center p-3">
-    <div class="d-flex align-items-center flex-column">
-      <span>Desenvolvido por not2nder. Dados pela <a target="_blank" href="https://developer.spotify.com/documentation/web-api">API do Spotify</a></span>
+  <footer class="d-flex flex-column align-items-center p-3 mt-auto">
+    <div class="d-flex align-items-center flex-column text-center">
+      <span>Desenvolvido por not2nder. Dados da <a target="_blank" href="https://developer.spotify.com/documentation/web-api">API do Spotify</a></span>
       <span>© 2025 NOT2NDER</span>
-    </div>
-  </footer>
+      </div>
+    </footer>
 </div>
 `;
 
 getArtistInfo(artistaAtual).then(data => {
   modoZoom(artistaAtual);
   registrarJogo(data.name);
-})
+});
