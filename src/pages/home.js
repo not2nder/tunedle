@@ -1,8 +1,7 @@
-import '../js/script.js';
-import { getSpotifyAccessToken } from '../js/spotify/spotify.js';
-import TomSelect from 'tom-select';
+import { getSpotifyAccessToken } from '@js/spotify/spotify.js';
+import '@styles/global.css';
 
-import '../styles/global.css';
+import TomSelect from 'tom-select';
 
 document.querySelector('#app').innerHTML = `
   <div class="page d-flex flex-column min-vh-100" style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
