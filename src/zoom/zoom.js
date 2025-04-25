@@ -11,7 +11,6 @@ document.querySelector('#app').innerHTML = `
     <span class="visually-hidden">Carregando...</span>
   </div>
 </div>
-
 <div id="conteudo" style="display: none;" class="page d-flex flex-column min-vh-100">
   <main class="container px-3 flex-grow-1 py-2">
     <div class="left-side w-100">
@@ -36,7 +35,7 @@ document.querySelector('#app').innerHTML = `
         <select id="album-select" class="tom-select" placeholder="🔎 Selecione um álbum...">
         </select>
       </div> 
-      <div class="card p-3 mt-2">
+      <div class="card p-3 mt-2 chutes">
         Seus chutes: 
         <ul id="tentativas" class="list-group"></ul>
       </div>

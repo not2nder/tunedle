@@ -99,11 +99,6 @@ img {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.31);
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    transition: 0.3s ease;
-}
-
 input {
     border: 2px solid black;
 }
@@ -231,3 +226,4 @@ footer a {
     box-shadow: 0px 0px 8px rgb(0, 0, 0);
     text-shadow: 2px 2px 3px #000000;
 }
+
