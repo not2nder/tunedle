@@ -26,7 +26,6 @@ export default defineConfig(({ mode }) => {
                     zoom: path.resolve(__dirname, 'zoom.html')},
             },
             cssCodeSplit: true,
-            minify: 'esbuild',
         },
     }
 })
