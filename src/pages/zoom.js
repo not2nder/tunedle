@@ -25,7 +25,7 @@ document.querySelector('#app').innerHTML = `
           <ul id="vidas" class="d-flex px-2 m-0"></ul>
         </div>
         <button type="button" class="btn button-30 easy mt-2" style="display: none" id="proximo-album">
-          <i class="bi bi-arrow-right"></i>
+          <span>próximo</span>
         </button>
       </div>
     </div>
