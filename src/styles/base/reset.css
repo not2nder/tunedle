@@ -14,6 +14,7 @@ html, body {
 body {
     transition: background 0.5s ease-in-out;
     transition: background-color 0.5s ease-in-out;
+    will-change: background;
 }
 
 ul {

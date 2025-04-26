@@ -1,9 +1,17 @@
-footer {
+.footer {
     background-color: rgb(17, 16, 16);
     color: rgb(138, 138, 138);
     text-align: center;
 }
 
-footer a {
+.footer a {
     color: rgb(194, 194, 194);
+}
+
+.footer a:hover {
+    color: rgb(230, 230, 230);
+}
+
+.footer .social-icons a {
+    margin-inline: 2px;
 }
