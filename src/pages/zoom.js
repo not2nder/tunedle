@@ -42,12 +42,21 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
   </main>
-  <footer class="d-flex flex-column align-items-center p-3 mt-auto">
-    <div class="d-flex align-items-center flex-column text-center">
-      <span>Desenvolvido por not2nder. Dados da <a target="_blank" href="https://developer.spotify.com/documentation/web-api">API do Spotify</a></span>
-      <span>© 2025 NOT2NDER</span>
+  <footer class="footer mt-auto py-3">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div>
+        <span>© 2025 NOT2NDER</span>
       </div>
-    </footer>
+      <div>
+        <a href="https://developer.spotify.com/documentation/web-api" target="_blank">API do Spotify</a>
+      </div>
+      <div class="social-icons mt-2 mt-md-0">
+        <a href="https://github.com/not2nder"><i class="bi bi-github"></i></a>
+        <a href="https://instagram.com/2nder.dev"><i class="bi bi-instagram"></i></a>
+        <a href="https://tiktok.com/@not2nder"><i class="bi bi-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
 </div>
 `;
 
@@ -55,3 +64,4 @@ getArtistInfo(artistaAtual).then(data => {
   modoZoom(artistaAtual);
   registrarJogo(data.name);
 });
+

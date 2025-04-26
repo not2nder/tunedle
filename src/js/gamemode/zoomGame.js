@@ -13,6 +13,7 @@ export async function modoZoom(idArtista) {
     const ulTentativas = document.getElementById('tentativas');
     const selectAlbum = document.getElementById('album-select')?.tomselect;
 
+    ulTentativas.innerHTML = '';
     divResposta?.classList.add('d-none');
 
     if (btnProximo) btnProximo.style.display = 'none';
@@ -35,11 +36,13 @@ export async function modoZoom(idArtista) {
         selectAlbum?.disable?.();
         return;
     }
+
+    imgCapa.style.transform = `scale(${tentativas})`;
+
     // Escolhe novo álbum e atualiza configs
     const novoAlbum = escolherAlbumAleatorio(albunsAtual);
     setAlbum(novoAlbum);
 
-    if (tentativas >= 1) imgCapa.style.transform = `scale(${tentativas})`;
     preencherSelect(albunsAtual);
     exibirCapa(novoAlbum);
     atualizarVidas();
@@ -48,7 +51,6 @@ export async function modoZoom(idArtista) {
     if (divConteudo) divConteudo.style.display = '';
 
     btnProximo?.addEventListener('click', () => {
-        ulTentativas.innerHTML = '';
         modoZoom(idArtista);
     }, { once: true });
 }

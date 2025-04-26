@@ -113,6 +113,11 @@ export function atualizarVidas() {
 
 export function mostrarResposta(nomeAlbum) {
   const resposta = document.getElementById('resposta');
+  const imgCapa = document.getElementById('capa');
+  const select = document.getElementById('album-select').tomselect;
+
+  select.disable();
+  imgCapa.style.transform = 'scale(1)';
   resposta.textContent = nomeAlbum;
   resposta.classList.remove('d-none');
 }
