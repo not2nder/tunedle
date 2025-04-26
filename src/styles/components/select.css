@@ -1,7 +1,14 @@
 .tom-select .ts-control {
     background-color: transparent;
-    border: 1px solid black;
-    border-radius: 2px;
+
+    color-scheme: only light;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    background-color: transparent;
+    border: 2px rgba(0, 0, 0, 0.6)solid;
+    border-radius: 7px;
 }
 
 .tom-select.open .ts-control {

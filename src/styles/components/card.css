@@ -1,7 +1,15 @@
 .card {
-    background-color: rgba(243, 243, 243, 0.967);
     border: 1px solid black;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.31);
+    text-decoration: none;
+    background-color: #fff;
+    box-shadow: 0 2.5px 10px 0 rgba(0,0,0,.3);
+    border-radius: 6px;
+    flex-direction: column;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-select: none;
 }
 
 .img-wrapper {
@@ -51,4 +59,10 @@
 .heart {
     width: 1.2rem;
     margin: 0 2px;
+}
+
+@media (pointer: coarse) {
+    .card-hover:hover {
+        transform: none;
+    }
 }

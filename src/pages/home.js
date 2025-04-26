@@ -41,7 +41,7 @@ document.querySelector('#app').innerHTML = `
             <ul class="p-0">
               <li class="mb-3">
                 <button class="btn w-100 button-30 easy" id="modo-zoom" role="button">
-                  <span>Modo Zoom 🔎</span>
+                  <strong>MODO ZOOM 🔎</strong>
                   <span class="small">Descubra o álbum pela capa</span>
                 </button>
               </li>
