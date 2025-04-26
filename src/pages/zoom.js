@@ -24,7 +24,7 @@ document.querySelector('#app').innerHTML = `
           <span>Tentativas Restantes: </span>
           <ul id="vidas" class="d-flex px-2 m-0"></ul>
         </div>
-        <button type="button" class="btn button-30 easy mt-2" style="display: none" id="proximo-album">
+        <button type="button" class="button-30 easy mt-2" style="display: none" id="proximo-album">
           <span>próximo</span>
         </button>
       </div>
