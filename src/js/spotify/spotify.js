@@ -4,15 +4,11 @@ import 'dotenv';
 export const getSpotifyAccessToken = async () => {
     const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
     const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
-
-    console.log(clientId)
-
-    const authHeader = btoa(`${clientId}:${clientSecret}`);
-
+    
     try {
         const response = await axios.post('https://accounts.spotify.com/api/token', null, {
             headers: {
-                'Authorization': `Basic ${authHeader}`,
+                'Authorization': `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
             params: new URLSearchParams({

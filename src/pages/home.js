@@ -76,7 +76,7 @@ new TomSelect(select, {
 
         try {
             const token = await getSpotifyAccessToken();
-            const url = `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist&limit=10`;
+            const url = `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=artist&limit=1`;
             const response = await fetch(url, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
