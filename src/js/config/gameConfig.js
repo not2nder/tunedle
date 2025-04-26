@@ -4,7 +4,6 @@ export let adivinhado = false;
 export let tentativas = 4;
 
 export function inicioJogo() {
-    tentativas = 4;
     adivinhado = false;
 }
 
@@ -12,7 +11,6 @@ export function resetarTentativas() {
     if (!adivinhado) {
         tentativas--;
     } else {
-        tentativas = 4;
         adivinhado = false;
     }
 }
