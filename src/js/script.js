@@ -1,6 +1,7 @@
 import Colorthief from 'colorthief';
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
 import { registrarAcerto, registrarErro, registrarPontos } from './config/playerStats.js';
+import imgUrl from '@assets/img/heart.png'
 import TomSelect from 'tom-select';
 
 export async function exibirCapa(album) {
@@ -102,7 +103,7 @@ export function atualizarVidas() {
 
   for (let i = 0; i < tentativas; i++) {
     const li = document.createElement('li');
-    li.innerHTML = '<span>❤</span>';
+    li.innerHTML = `<img src="${imgUrl}" class="heart">`;
     fragment.appendChild(li);
   }
 

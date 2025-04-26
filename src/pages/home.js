@@ -8,7 +8,7 @@ document.querySelector('#app').innerHTML = `
     <main class="page-container px-3 flex-grow-1">
       <div class="row">
         <div class="col-md-6 mb-4">
-          <div class="card p-4 d-flex flex-column justify-content-between">
+          <div class="card card-hover p-4 d-flex flex-column justify-content-between">
             <div>
               <h3>🎮 Bem-vindo! 🎵</h3>
               <p>
@@ -30,9 +30,8 @@ document.querySelector('#app').innerHTML = `
           </div>
         </div>
 
-        <!-- Modos de jogo à direita -->
         <div class="col-md-6">
-          <div class="card p-4 h-100">
+          <div class="card card-hover p-4 h-100">
             <h4 class="mb-3">🎧 Modos de Jogo</h4>
             <div class="py-3">
                 <span>Antes de selecionar um modo, escolha um artista</span>
