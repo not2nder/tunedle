@@ -10,22 +10,17 @@ document.querySelector('#app').innerHTML = `
         <div class="col-md-6 mb-4">
           <div class="card card-hover p-4 d-flex flex-column justify-content-between">
             <div>
-              <h3>🎮 Bem-vindo! 🎵</h3>
+              <h3>🎮 Tunedle🎵</h3>
               <p>
                 Tente adivinhar o nome de um álbum apenas olhando a capa — quanto mais rápido, melhor!
                 No <strong>Modo Zoom</strong>, a imagem é revelada aos poucos... consegue acertar antes de ver tudo?
               </p>
+              <p>
+                Mais modos em breve!
+              </p>
               <p class="text-muted small">
                 Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.
               </p>
-            </div>
-            <div>
-              <p class="mb-1">🔗 Me acompanhe:</p>
-              <ul class="list-unstyled">
-                <li><a href="https://github.com/not2nder" target="_blank">GitHub</a></li>
-                <li><a href="https://open.spotify.com/artist/4WB56sWCElzGrYSNcZgwro" target="_blank">Spotify</a></li>
-                <li><a href="https://instagram.com/2nder.dev" target="_blank">Instagram</a></li>
-              </ul>
             </div>
           </div>
         </div>
