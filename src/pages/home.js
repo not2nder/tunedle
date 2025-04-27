@@ -70,23 +70,18 @@ document.querySelector('#app').innerHTML = `
 const select = document.getElementById('artist-select');
 
 const frases = [
-  "O som está nos detalhes",
   "Quantos álbuns você conhece de verdade?",
   "Treine seus ouvidos e sua memória!",
   "Quando a capa diz tudo — ou quase tudo",
   "Errar também faz parte da música",
   "Nem sempre é tão fácil quanto parece!",
-  "Feito com bugs, amor e muita música.",
   "Este jogo teve mais versões que álbuns remasterizados.",
   "Atualizações frequentes... igual playlist de fim de semana.",
   "Descubra, adivinhe, desafine!",
   "Alguns álbuns envelhecem como vinho... outros como leite",
   "Nem toda capa famosa é tão fácil de reconhecer!",
-  "Um dia sem música é um dia perdido",
   "Jogue com seu artista favorito!",
   "Mostre que você conhece cada álbum!",
-  "O próximo hit pode estar a um follow de distância.",
-  "Siga o desenvolvedor"
 ];
 
 document.getElementById('text-pulse').textContent = frases[Math.floor(Math.random() * frases.length)];
