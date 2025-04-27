@@ -1,7 +1,8 @@
 export let albunsAtual = null;
 export let albumAtual = null;
 export let adivinhado = false;
-export let tentativas = 4;
+export let tentativas = 4; // tentativas = zoom
+export let vidas = 5; // vidas = vidas
 
 export function inicioJogo() {
     tentativas = 4;
@@ -27,4 +28,13 @@ export function setAlbuns(lista) {
 
 export function setAlbum(album) {
     albumAtual = album;
+}
+
+
+export function getVidas() {
+    return vidas;
+}
+
+export function diminuirVidas() {
+    vidas--;
 }

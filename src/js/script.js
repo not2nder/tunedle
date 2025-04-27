@@ -1,6 +1,6 @@
 import Colorthief from 'colorthief';
-import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado } from './config/gameConfig.js';
-import { registrarAcerto, registrarErro, registrarPontos } from './config/playerStats.js';
+import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado, getVidas, diminuirVidas} from '@js/config/gameConfig.js';
+import { registrarAcerto, registrarErro, registrarPontos } from '@js/config/playerStats.js';
 import imgUrl from '@assets/img/heart.png'
 import TomSelect from 'tom-select';
 
@@ -41,10 +41,10 @@ export function preencherSelect(albuns) {
 }
 
 export function verificarPalpite(tentativaUsuario, resposta) {
-  if (adivinhado || tentativas <=0) return;
+  if (adivinhado || getVidas <=0) return;
 
   const imagem = document.getElementById('capa');
-  const vidas = document.getElementById('vidas');
+  const ulVidas = document.getElementById('vidas');
   const tentativasLista = document.getElementById('tentativas');
   const audio = document.getElementById('audio-acerto');
   const select = document.getElementById('album-select').tomselect;
@@ -79,36 +79,39 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
   } else {
     resetarTentativas();
+    diminuirVidas();
+
     li.classList.add('list-group-item-danger');
     li.textContent = `❌ ${tentativaUsuario}`;
 
     if (tentativas >= 1) imagem.style.transform = `scale(${tentativas})`;
 
-    vidas.classList.add('shake');
-    setTimeout(() => vidas.classList.remove('shake'), 400);
+    ulVidas.classList.add('shake');
+    setTimeout(() => ulVidas.classList.remove('shake'), 400);
     atualizarVidas(albumAtual.artists[0].name);
   }
 
   tentativasLista.appendChild(li);
-  if (tentativas === 0 && !adivinhado) {
+  if (getVidas() === 0 && !adivinhado) {
     mostrarResposta(resposta);
-    document.getElementById('proximo-album').style.display = '';
     registrarErro(artista);
   }
+
+  console.log(getVidas());
 }
 
 export function atualizarVidas() {
-  const vidas = document.getElementById('vidas');
+  const ulVidas = document.getElementById('vidas');
   const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < tentativas; i++) {
+  for (let i = 0; i < getVidas(); i++) {
     const li = document.createElement('li');
     li.innerHTML = `<img src="${imgUrl}" class="heart">`;
     fragment.appendChild(li);
   }
 
-  vidas.innerHTML = '';
-  vidas.appendChild(fragment);
+  ulVidas.innerHTML = '';
+  ulVidas.appendChild(fragment);
 }
 
 export function mostrarResposta(nomeAlbum) {
