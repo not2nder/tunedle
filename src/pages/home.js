@@ -13,7 +13,7 @@ document.querySelector('#app').innerHTML = `
         <div class="col-md-6 mb-4">
           <div class="card card-hover p-4 d-flex flex-column justify-content-between">
             <div>
-              <h3>🎮 Tunedle🎵</h3>
+              <h3><i class="fa-solid fa-music"></i> Tunedle</h3>
               <p>
                 Tente adivinhar o nome de um álbum apenas olhando a capa — quanto mais rápido, melhor!
                 No <strong>Modo Zoom</strong>, a imagem é revelada aos poucos... consegue acertar antes de ver tudo?
@@ -25,12 +25,17 @@ document.querySelector('#app').innerHTML = `
                 Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.
               </p>
             </div>
+            <span>Apoie o Desenvolvedor:</span>
+            <div>
+              <a href="https://github.com/not2nder"><i class="fa-brands fa-github"></i></a>
+              <a href="https://instagram.com/2nder.dev"><i class="fa-brands fa-instagram"></i></a>
+            </div>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="card card-hover p-4 h-100">
-            <h4 class="mb-3">🎧 Modos de Jogo</h4>
+            <h4 class="mb-3"><i class="fa-solid fa-gamepad"></i> Modos de Jogo</h4>
             <div class="py-3">
                 <span>Antes de selecionar um modo, escolha um artista</span>
                 <select id="artist-select" class="tom-select" placeholder="🔎 Procure um Artista"></select>
@@ -48,22 +53,6 @@ document.querySelector('#app').innerHTML = `
         </div>
       </div>
     </main>
-
-    <footer class="footer mt-auto py-3">
-      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <div>
-          <span>© 2025 NOT2NDER</span>
-        </div>
-        <div>
-          <a href="https://developer.spotify.com/documentation/web-api" target="_blank">API do Spotify</a>
-        </div>
-        <div class="social-icons mt-2 mt-md-0">
-          <a href="https://github.com/not2nder"><i class="bi bi-github"></i></a>
-          <a href="https://instagram.com/2nder.dev"><i class="bi bi-instagram"></i></a>
-          <a href="https://tiktok.com/@not2nder"><i class="bi bi-tiktok"></i></a>
-        </div>
-      </div>
-    </footer>
   </div>
 `;
 

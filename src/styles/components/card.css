@@ -73,3 +73,10 @@
         transform: none;
     }
 }
+
+.card a {
+    color: #000615;
+    font-size: 1.4rem;
+    margin: 0;
+    margin-inline: 2px;
+}
