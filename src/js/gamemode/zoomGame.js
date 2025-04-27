@@ -15,6 +15,7 @@ export async function modoZoom(idArtista) {
 
     ulTentativas.innerHTML = '';
     divResposta?.classList.add('d-none');
+    imgCapa.style.transform = `scale(${tentativas})`;
 
     if (btnProximo) btnProximo.style.display = 'none';
     if (selectAlbum) selectAlbum.enable?.();
@@ -36,8 +37,6 @@ export async function modoZoom(idArtista) {
         selectAlbum?.disable?.();
         return;
     }
-
-    imgCapa.style.transform = `scale(${tentativas})`;
 
     // Escolhe novo álbum e atualiza configs
     const novoAlbum = escolherAlbumAleatorio(albunsAtual);
