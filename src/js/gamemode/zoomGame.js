@@ -1,6 +1,7 @@
-import {setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo} from '@js/config/gameConfig.js';
+import {setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo, diminuirVidas, adivinhado} from '@js/config/gameConfig.js';
 import {preencherSelect, exibirCapa, atualizarVidas} from '@js/script.js';
 import {getArtistAlbums, escolherAlbumAleatorio} from '@js/spotify/spotify.js';
+import { mostrarResposta } from '@js/script.js';
 
 export async function modoZoom(idArtista) {
     inicioJogo();
@@ -8,6 +9,7 @@ export async function modoZoom(idArtista) {
     const divResposta = document.getElementById('resposta');
     const imgCapa = document.getElementById('capa');
     const btnProximo = document.getElementById('proximo-album');
+    const btnPular = document.getElementById('pular-album');
     const divLoading = document.getElementById('carregando');
     const divConteudo = document.getElementById('conteudo');
     const ulTentativas = document.getElementById('tentativas');
@@ -52,4 +54,15 @@ export async function modoZoom(idArtista) {
     btnProximo?.addEventListener('click', () => {
         modoZoom(idArtista);
     }, { once: true });
+
+    if (btnPular && !adivinhado) {
+        btnPular.disabled = false;
+        btnPular.addEventListener('click', () => {
+            btnProximo.style.display=''
+            mostrarResposta(albumAtual.name);
+            diminuirVidas();
+            atualizarVidas();
+            btnPular.disabled = true;
+        }, {once:true})
+    }
 }

@@ -1,4 +1,5 @@
 import { getSpotifyAccessToken } from '@js/spotify/spotify.js';
+import { frases } from '@js/frases';
 import '@styles/global.css';
 
 import TomSelect from 'tom-select';
@@ -44,7 +45,7 @@ document.querySelector('#app').innerHTML = `
 
             <ul class="p-0">
               <li class="mb-3">
-                <button class="btn w-100 button-30 easy" id="modo-zoom" role="button">
+                <button class="btn w-100 button easy" id="modo-zoom" role="button">
                   <strong>MODO ZOOM 🔎</strong>
                   <span class="small">Descubra o álbum pela capa</span>
                 </button>
@@ -58,21 +59,6 @@ document.querySelector('#app').innerHTML = `
 `;
 
 const select = document.getElementById('artist-select');
-
-const frases = [
-  "Quantos álbuns você conhece de verdade?",
-  "Treine seus ouvidos e sua memória!",
-  "Quando a capa diz tudo — ou quase tudo",
-  "Errar também faz parte da música",
-  "Nem sempre é tão fácil quanto parece!",
-  "Este jogo teve mais versões que álbuns remasterizados.",
-  "Atualizações frequentes... igual playlist de fim de semana.",
-  "Descubra, adivinhe, desafine!",
-  "Alguns álbuns envelhecem como vinho... outros como leite",
-  "Nem toda capa famosa é tão fácil de reconhecer!",
-  "Jogue com seu artista favorito!",
-  "Mostre que você conhece cada álbum!",
-];
 
 document.getElementById('text-pulse').textContent = frases[Math.floor(Math.random() * frases.length)];
 

@@ -1,5 +1,6 @@
 .easy {
     background-color: rgb(16, 195, 111);
+    box-shadow: 0px 6px 0px 0px#1a6b6a;
     color: #fff !important;
 }
 
@@ -7,19 +8,37 @@
     background-color: rgb(18, 173, 101);
 }
 
-.button-30 {
+.hard {
+    background-color: rgb(232, 25, 73);
+    box-shadow: 0px 6px 0px 0px#7a1e38;
+    color: #fff !important;
+}
+
+.hard:hover {
+    background-color: rgb(173, 18, 54);
+}
+
+.button {
     outline: none;
     border: none;
     border-radius: 7px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 6px 0px 0px#1a6b6a;
     font-size: 19px;
 
     padding: 0.4rem 0;
+
+    transition: none;
 }
 
-.button-30 span {
+.button span {
     text-transform: uppercase;
+}
+
+button.hard:disabled,
+button.hard[disabled]{
+    background-color: rgb(207, 196, 196);
+    box-shadow: 0px 6px 0px 0px#887676;
+    color: #2d2d2d !important;
 }

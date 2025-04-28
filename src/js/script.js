@@ -59,6 +59,9 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     li.classList.add('list-group-item-success');
     li.textContent = `✔️ ${tentativaUsuario}`;
 
+    const btnPular = document.getElementById('pular-album');
+    btnPular.disabled = true;
+
     confetti({
       particleCount: 75,
       spread: 100,
@@ -96,8 +99,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     mostrarResposta(resposta);
     registrarErro(artista);
   }
-
-  console.log(getVidas());
 }
 
 export function atualizarVidas() {
