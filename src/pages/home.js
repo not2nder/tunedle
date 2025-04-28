@@ -4,7 +4,8 @@ import '@styles/global.css';
 import TomSelect from 'tom-select';
 
 document.querySelector('#app').innerHTML = `
-  <div class="page d-flex flex-column min-vh-100" style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
+<div style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
+  <div class="page d-flex flex-column min-vh-100">
     <main class="page-container px-3 flex-grow-1">
       <div>
         <h1 class="pulse main-text" id="text-pulse"></h1>

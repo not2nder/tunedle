@@ -60,7 +60,7 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     li.textContent = `✔️ ${tentativaUsuario}`;
 
     confetti({
-      particleCount: 150,
+      particleCount: 75,
       spread: 100,
       origin: { y: 0.6 },
       shapes: ['star'],
