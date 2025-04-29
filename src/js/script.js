@@ -1,8 +1,9 @@
-import Colorthief from 'colorthief';
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado, getVidas, diminuirVidas} from '@js/config/gameConfig.js';
 import { registrarAcerto, registrarErro, registrarPontos } from '@js/config/playerStats.js';
 import imgUrl from '@assets/img/heart.png'
+
 import TomSelect from 'tom-select';
+import Colorthief from 'colorthief';
 
 export async function exibirCapa(album) {
   const capa = document.getElementById('capa');
@@ -48,6 +49,7 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   const tentativasLista = document.getElementById('tentativas');
   const audio = document.getElementById('audio-acerto');
   const select = document.getElementById('album-select').tomselect;
+  const btnProximo = document.getElementById('proximo-album');
 
   const li = document.createElement('li');
   li.classList.add('list-group-item');
@@ -73,7 +75,7 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     audio.play();
 
     imagem.style.transform = 'scale(1)';
-    document.getElementById('proximo-album').style.display = '';
+    btnProximo.disabled = false;
     select.disable();
 
     //registrar pontos
@@ -95,9 +97,11 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   }
 
   tentativasLista.appendChild(li);
+
   if (getVidas() === 0 && !adivinhado) {
     mostrarResposta(resposta);
     registrarErro(artista);
+    btnProximo.disabled = true;
   }
 }
 

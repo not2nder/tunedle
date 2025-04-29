@@ -1,4 +1,4 @@
-import { stats, salvarStats } from "./playerStats";
+import { stats, salvarStats } from "@js/config/playerStats";
 
 export let score = 0;
 

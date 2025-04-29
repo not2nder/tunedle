@@ -1,6 +1,6 @@
 .easy {
     background-color: rgb(16, 195, 111);
-    box-shadow: 0px 6px 0px 0px#1a6b6a;
+    box-shadow: 0px 4px 0px#1a6b6a;
     color: #fff !important;
 }
 
@@ -10,12 +10,12 @@
 
 .hard {
     background-color: rgb(232, 25, 73);
-    box-shadow: 0px 6px 0px 0px#7a1e38;
+    box-shadow: 0px 4px 0px 0px#7a1e38;
     color: #fff !important;
 }
 
 .hard:hover {
-    background-color: rgb(173, 18, 54);
+    background-color: rgb(198, 28, 59);
 }
 
 .button {
@@ -36,9 +36,15 @@
     text-transform: uppercase;
 }
 
-button.hard:disabled,
-button.hard[disabled]{
+button:disabled,
+button[disabled]{
     background-color: rgb(207, 196, 196);
-    box-shadow: 0px 6px 0px 0px#887676;
+    box-shadow: 0px 4px 0px 0px#887676;
+    color: #2d2d2d !important;
+}
+
+button[disabled]:hover{
+    background-color: rgb(211, 201, 201);
+    box-shadow: 0px 4px 0px 0px#887676;
     color: #2d2d2d !important;
 }

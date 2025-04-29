@@ -4,7 +4,7 @@ import '@styles/global.css';
 
 import TomSelect from 'tom-select';
 
-document.querySelector('#app').innerHTML = `
+document.querySelector('#app').innerHTML = /*html*/`
 <div style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
   <div class="page d-flex flex-column min-vh-100">
     <main class="page-container px-3 flex-grow-1">
@@ -20,12 +20,8 @@ document.querySelector('#app').innerHTML = `
                 Tente adivinhar o nome de um álbum apenas olhando a capa — quanto mais rápido, melhor!
                 No <strong>Modo Zoom</strong>, a imagem é revelada aos poucos... consegue acertar antes de ver tudo?
               </p>
-              <p>
-                Mais modos em breve!
-              </p>
-              <p class="text-muted small">
-                Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.
-              </p>
+              <p> Mais modos em breve!</p>
+              <p class="text-muted small">Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.</p>
             </div>
             <span>Apoie o Desenvolvedor:</span>
             <div>
@@ -39,8 +35,8 @@ document.querySelector('#app').innerHTML = `
           <div class="card card-hover p-4 h-100">
             <h4 class="mb-3"><i class="fa-solid fa-gamepad"></i> Modos de Jogo</h4>
             <div class="py-3">
-                <span>Antes de selecionar um modo, escolha um artista</span>
-                <select id="artist-select" class="tom-select" placeholder="🔎 Procure um Artista"></select>
+              <span>Antes de selecionar um modo, escolha um artista</span>
+              <select id="artist-select" class="tom-select" placeholder="🔎 Procure um Artista"></select>
             </div>
 
             <ul class="p-0">
