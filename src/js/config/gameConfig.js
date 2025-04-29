@@ -1,8 +1,9 @@
+export let adivinhado = false;
 export let albunsAtual = null;
 export let albumAtual = null;
-export let adivinhado = false;
-export let tentativas = 4; // tentativas = zoom
-export let vidas = 5; // vidas = vidas
+export let tentativas = 4;
+export let vidas = 5;
+export let pulos = 3;
 
 export function inicioJogo() {
     tentativas = 4;
@@ -37,4 +38,12 @@ export function getVidas() {
 
 export function diminuirVidas() {
     vidas--;
+    
+    const ulVidas = document.getElementById('vidas');
+    ulVidas.classList.add('shake');
+    setTimeout(() => ulVidas.classList.remove('shake'), 400);
+}
+
+export function diminuirPulos() {
+    pulos--;
 }

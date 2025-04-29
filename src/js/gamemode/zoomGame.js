@@ -57,13 +57,12 @@ export async function modoZoom(idArtista) {
 
     if (btnPular && !adivinhado) {
         btnPular.disabled = false;
-        btnPular.addEventListener('click', () => {
+        btnPular.onclick = () => {
             mostrarResposta(albumAtual.name);
             diminuirVidas();
             atualizarVidas();
-
             if (getVidas() > 0) btnProximo.disabled = false;
             btnPular.disabled = true;
-        }, {once:true})
+        };
     }
 }

@@ -10,9 +10,11 @@ export async function exibirCapa(album) {
   capa.crossOrigin = 'anonymous';
   capa.src = album.images[0].url;
 
-  capa.onload = async () => {
+  capa.onload = () => {
     const colorthief = new Colorthief();
-    const cor = await colorthief.getPalette(capa)[3];
+    const cor = colorthief.getPalette(capa)[3];
+    if (!cor) return;
+
     const [r,g,b] = cor;
     const corLight = `rgb(${Math.min(r+30,200)},${Math.min(g+30,200)},${Math.min(b+30,200)})`
     const corBase = `rgb(${cor.join(',')})`;
@@ -42,10 +44,9 @@ export function preencherSelect(albuns) {
 }
 
 export function verificarPalpite(tentativaUsuario, resposta) {
-  if (adivinhado || getVidas <=0) return;
+  if (adivinhado || getVidas() <=0) return;
 
   const imagem = document.getElementById('capa');
-  const ulVidas = document.getElementById('vidas');
   const tentativasLista = document.getElementById('tentativas');
   const audio = document.getElementById('audio-acerto');
   const select = document.getElementById('album-select').tomselect;
@@ -57,18 +58,18 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   const artista = albumAtual.artists[0].name;
 
   if (tentativaUsuario === resposta) {
+    if (adivinhado) return;
+
     marcarAdivinhado();
     li.classList.add('list-group-item-success');
     li.textContent = `✔️ ${tentativaUsuario}`;
 
-    const btnPular = document.getElementById('pular-album');
-    btnPular.disabled = true;
+    document.getElementById('pular-album').disabled = true;
 
     confetti({
-      particleCount: 75,
-      spread: 100,
-      origin: { y: 0.6 },
-      shapes: ['star'],
+      particleCount: 80,
+      spread: 360,
+      origin: { y: 0.2 },
     });
 
     audio.currentTime = 0;
@@ -91,32 +92,27 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
     if (tentativas >= 1) imagem.style.transform = `scale(${tentativas})`;
 
-    ulVidas.classList.add('shake');
-    setTimeout(() => ulVidas.classList.remove('shake'), 400);
-    atualizarVidas(albumAtual.artists[0].name);
+    atualizarVidas();
+
+    if (getVidas() === 0 && !adivinhado) {
+      mostrarResposta(resposta);
+      registrarErro(artista);
+      btnProximo.disabled = true;
+    }
   }
 
   tentativasLista.appendChild(li);
-
-  if (getVidas() === 0 && !adivinhado) {
-    mostrarResposta(resposta);
-    registrarErro(artista);
-    btnProximo.disabled = true;
-  }
 }
 
 export function atualizarVidas() {
   const ulVidas = document.getElementById('vidas');
   const fragment = document.createDocumentFragment();
 
-  for (let i = 0; i < getVidas(); i++) {
+  ulVidas.replaceChildren(...Array.from({length: getVidas()}, () => {
     const li = document.createElement('li');
     li.innerHTML = `<img src="${imgUrl}" class="heart">`;
-    fragment.appendChild(li);
-  }
-
-  ulVidas.innerHTML = '';
-  ulVidas.appendChild(fragment);
+    return li;
+  }));  
 }
 
 export function mostrarResposta(nomeAlbum) {
