@@ -21,7 +21,7 @@ document.querySelector('#app').innerHTML = /*html*/`
       <div class="col-md-6 mb-4">
         <div class="card p-3 d-flex flex-column justify-content-between">
           <div class="img-wrapper" id="img-wrapper">
-            <img id="capa" alt="Capa do álbum">
+            <img id="capa" alt="Capa do álbum" crossorigin="anonymous">
             <div id="resposta" class="resposta-overlay d-none">Resposta</div>
           </div>
           <div class="mt-2 d-flex align-items-center">

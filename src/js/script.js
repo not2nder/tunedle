@@ -8,7 +8,6 @@ import imgUrl from '@assets/img/heart.png'
 
 export async function exibirCapa(album) {
   const capa = document.getElementById('capa');
-  capa.crossOrigin = 'anonymous';
   capa.src = album.images[0].url;
 
   capa.onload = () => {
@@ -65,10 +64,10 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
     document.getElementById('pular-album').disabled = true;
 
-    //registrar pontos
     registrarPontos(artista, tentativas*5);
     registrarAcerto(artista);
-
+    
+    mostrarResposta(resposta);
   } else {
     resetarTentativas();
     diminuirVidas();
@@ -83,9 +82,9 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     if (getVidas() === 0 && !adivinhado) {
       registrarErro(artista);
       btnProximo.disabled = true;
+      mostrarResposta(resposta);
     }
   }
-  mostrarResposta(resposta);
   tentativasLista.appendChild(li);
 }
 
@@ -100,6 +99,7 @@ export function atualizarVidas() {
 }
 
 export function mostrarResposta(nomeAlbum) {
+
   const resposta = document.getElementById('resposta');
   const imgCapa = document.getElementById('capa');
   const select = document.getElementById('album-select').tomselect;
