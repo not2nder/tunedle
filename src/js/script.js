@@ -15,9 +15,8 @@ export async function exibirCapa(album) {
     const cor = colorthief.getPalette(capa)[3];
     if (!cor) return;
 
-    const [r,g,b] = cor;
-    const corLight = `rgb(${Math.min(r+30,200)},${Math.min(g+30,200)},${Math.min(b+30,200)})`
     const corBase = `rgb(${cor.join(',')})`;
+    const corLight = `rgb(${cor.map(c => Math.min(c + 30, 200)).join(',')})`;
 
     document.body.style.background = `linear-gradient(0deg, ${corBase},${corLight})`;
   }
@@ -30,9 +29,8 @@ export function preencherSelect(albuns) {
 
   select.appendChild(new Option('Selecione um álbum...','',true,true));
 
-  albuns.forEach(album => {
-    const opt = new Option(album.name, album.name);
-    select.appendChild(opt);
+  albuns.forEach(({ name }) => {
+    select.appendChild(new Option(name, name));
   });
 
   new TomSelect(select, {
@@ -49,11 +47,10 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   const imagem = document.getElementById('capa');
   const tentativasLista = document.getElementById('tentativas');
   const btnProximo = document.getElementById('proximo-album');
+  const artista = albumAtual.artists[0].name;
 
   const li = document.createElement('li');
   li.classList.add('list-group-item');
-
-  const artista = albumAtual.artists[0].name;
 
   if (tentativaUsuario === resposta) {
     if (adivinhado) return;
@@ -90,7 +87,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
 export function atualizarVidas() {
   const ulVidas = document.getElementById('vidas');
-
   ulVidas.replaceChildren(...Array.from({length: getVidas()}, () => {
     const li = document.createElement('li');
     li.innerHTML = `<img src="${imgUrl}" class="heart">`;
