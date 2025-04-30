@@ -1,6 +1,6 @@
-import {setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo, diminuirVidas, getVidas, adivinhado} from '@js/config/gameConfig.js';
-import {preencherSelect, exibirCapa, atualizarVidas} from '@js/script.js';
-import {getArtistAlbums, escolherAlbumAleatorio} from '@js/spotify/spotify.js';
+import { setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo, diminuirVidas, getVidas, adivinhado, pulos, diminuirPulos } from '@js/config/gameConfig.js';
+import { preencherSelect, exibirCapa, atualizarVidas} from '@js/script.js';
+import { getArtistAlbums, escolherAlbumAleatorio} from '@js/spotify/spotify.js';
 import { mostrarResposta } from '@js/script.js';
 
 export async function modoZoom(idArtista) {
@@ -21,6 +21,7 @@ export async function modoZoom(idArtista) {
 
     if (btnProximo) btnProximo.disabled = true;
     if (selectAlbum) selectAlbum.enable?.();
+    if(btnPular) btnPular.textContent = `PULAR (${pulos})`
 
     if (!albunsAtual || albunsAtual.length === 0) {
         const listaAlbuns = await getArtistAlbums(idArtista);
@@ -35,7 +36,7 @@ export async function modoZoom(idArtista) {
 
     // Fim do jogo
     if (!albunsAtual || albunsAtual.length === 0) {
-        alert('Você já acertou todos os álbuns desse artista!');
+        alert('Você chegou ao fim da discogradia desse artista!');
         selectAlbum?.disable?.();
         return;
     }
@@ -55,7 +56,7 @@ export async function modoZoom(idArtista) {
         modoZoom(idArtista);
     }, { once: true });
 
-    if (btnPular && !adivinhado) {
+    if (btnPular && !adivinhado && pulos > 0) {
         btnPular.disabled = false;
         btnPular.onclick = () => {
             mostrarResposta(albumAtual.name);
@@ -63,6 +64,8 @@ export async function modoZoom(idArtista) {
             atualizarVidas();
             if (getVidas() > 0) btnProximo.disabled = false;
             btnPular.disabled = true;
+            diminuirPulos();
+            btnPular.textContent = `PULAR (${pulos})`
         };
     }
 }

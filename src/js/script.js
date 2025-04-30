@@ -1,9 +1,10 @@
 import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado, getVidas, diminuirVidas} from '@js/config/gameConfig.js';
 import { registrarAcerto, registrarErro, registrarPontos } from '@js/config/playerStats.js';
-import imgUrl from '@assets/img/heart.png'
 
 import TomSelect from 'tom-select';
 import Colorthief from 'colorthief';
+
+import imgUrl from '@assets/img/heart.png'
 
 export async function exibirCapa(album) {
   const capa = document.getElementById('capa');
@@ -106,7 +107,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
 export function atualizarVidas() {
   const ulVidas = document.getElementById('vidas');
-  const fragment = document.createDocumentFragment();
 
   ulVidas.replaceChildren(...Array.from({length: getVidas()}, () => {
     const li = document.createElement('li');
@@ -120,8 +120,9 @@ export function mostrarResposta(nomeAlbum) {
   const imgCapa = document.getElementById('capa');
   const select = document.getElementById('album-select').tomselect;
 
-  select.disable();
-  imgCapa.style.transform = 'scale(1)';
   resposta.textContent = nomeAlbum;
+  imgCapa.style.transform = 'scale(1)';
   resposta.classList.remove('d-none');
+  
+  select.disable();
 }
