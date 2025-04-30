@@ -10,7 +10,7 @@
     -webkit-font-smoothing: antialiased;
     -webkit-user-select: none;
 
-    border: 1px rgb(28, 28, 28)solid;
+    border: 1px rgba(2, 0, 6, 0.852) solid;
     box-shadow:
         inset 0px 1px 0px 0px rgb(171, 171, 171),
         0px 3px 0px 0px rgba(2, 0, 6, 0.852);
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    border: 2px solid black;
+    border: 1px solid rgba(2, 0, 6, 0.852);
     border-radius: 7px;
 
     width: 100%;
@@ -47,7 +47,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.756);
+    background: rgba(2, 0, 6, 0.852);
     backdrop-filter: blur(30px);
     color: white;
     padding: 1rem;
@@ -55,7 +55,7 @@
     font-size: large;
     text-align: center;
     box-shadow: 0px 0px 10px rgb(0, 0, 0);
-    text-shadow: 0px 2px 3px #000000;
+    text-shadow: 0px 2px 3px rgb(0, 0, 0);
 }
 
 .card-hover:hover {
@@ -67,15 +67,15 @@
     margin: 0 2px;
 }
 
-@media (pointer: coarse) {
-    .card-hover:hover {
-        transform: none;
-    }
-}
-
 .card a {
     color: #000615;
     font-size: 1.4rem;
     margin: 0;
     margin-inline: 2px;
+}
+
+@media (pointer: coarse) {
+    .card-hover:hover {
+        transform: none;
+    }
 }
