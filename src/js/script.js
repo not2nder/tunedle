@@ -49,8 +49,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
 
   const imagem = document.getElementById('capa');
   const tentativasLista = document.getElementById('tentativas');
-  const audio = document.getElementById('audio-acerto');
-  const select = document.getElementById('album-select').tomselect;
   const btnProximo = document.getElementById('proximo-album');
 
   const li = document.createElement('li');
@@ -66,19 +64,6 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     li.textContent = `✔️ ${tentativaUsuario}`;
 
     document.getElementById('pular-album').disabled = true;
-
-    confetti({
-      particleCount: 80,
-      spread: 360,
-      origin: { y: 0.2 },
-    });
-
-    audio.currentTime = 0;
-    audio.play();
-
-    imagem.style.transform = 'scale(1)';
-    btnProximo.disabled = false;
-    select.disable();
 
     //registrar pontos
     registrarPontos(artista, tentativas*5);
@@ -96,12 +81,11 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     atualizarVidas();
 
     if (getVidas() === 0 && !adivinhado) {
-      mostrarResposta(resposta);
       registrarErro(artista);
       btnProximo.disabled = true;
     }
   }
-
+  mostrarResposta(resposta);
   tentativasLista.appendChild(li);
 }
 
@@ -119,10 +103,22 @@ export function mostrarResposta(nomeAlbum) {
   const resposta = document.getElementById('resposta');
   const imgCapa = document.getElementById('capa');
   const select = document.getElementById('album-select').tomselect;
+  const btnProximo = document.getElementById('proximo-album');
+  const audio = document.getElementById('audio-acerto');
 
   resposta.textContent = nomeAlbum;
   imgCapa.style.transform = 'scale(1)';
   resposta.classList.remove('d-none');
-  
+
+  if (adivinhado) {
+    audio.currentTime = 0;
+    audio.play();
+    confetti({
+      particleCount: 80,
+      spread: 360,
+      origin: { y: 0.2 },
+    });
+    btnProximo.disabled = false;
+  }
   select.disable();
 }
