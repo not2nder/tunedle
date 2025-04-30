@@ -1,15 +1,5 @@
-import { stats, salvarStats } from "@js/config/playerStats";
+const STORAGE_KEY = 'GAME_SCORE';
 
-export let score = 0;
+export let score = {
 
-export function carregarScore() {
-    const salvo = localStorage.getItem('score');
-    score = salvo? parseInt(salvo,10):0;
-}
-
-export function atualizarPontos(pontos) {
-    score += pontos;
-    localStorage.setItem('score',score);
-    stats.totalPontos += pontos;
-    salvarStats(stats)
 }

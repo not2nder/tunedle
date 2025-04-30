@@ -1,10 +1,11 @@
-import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado, getVidas, diminuirVidas} from '@js/config/gameConfig.js';
-import { registrarAcerto, registrarErro, registrarPontos } from '@js/config/playerStats.js';
+import { albumAtual, tentativas, marcarAdivinhado, resetarTentativas, adivinhado, getVidas, diminuirVidas, score} from '@js/config/gameConfig.js';
 
 import TomSelect from 'tom-select';
 import Colorthief from 'colorthief';
 
 import imgUrl from '@assets/img/heart.png'
+
+import { registrarAcerto, registrarErro,registrarPontos } from './config/playerStats';
 
 export async function exibirCapa(album) {
   const capa = document.getElementById('capa');
@@ -53,17 +54,15 @@ export function verificarPalpite(tentativaUsuario, resposta) {
   li.classList.add('list-group-item');
 
   if (tentativaUsuario === resposta) {
-    if (adivinhado) return;
-
+    
     marcarAdivinhado();
     li.classList.add('list-group-item-success');
     li.textContent = `✔️ ${tentativaUsuario}`;
 
     document.getElementById('pular-album').disabled = true;
-    
-    registrarPontos(artista, tentativas*5);
-    registrarAcerto(artista);
-    
+    // registrarPontos(artista, getVidas());
+    // registrarAcerto(artista);
+
     mostrarResposta(resposta);
   } else {
     resetarTentativas();
@@ -77,11 +76,12 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     atualizarVidas();
 
     if (getVidas() === 0 && !adivinhado) {
-      registrarErro(artista);
+      // registrarErro(artista);
       btnProximo.disabled = true;
       mostrarResposta(resposta);
     }
   }
+  console.log(`A: ${score.acertos} | P: ${score.pontos} | M: ${score.maxPontos}`)
   tentativasLista.appendChild(li);
 }
 
@@ -95,7 +95,6 @@ export function atualizarVidas() {
 }
 
 export function mostrarResposta(nomeAlbum) {
-
   const resposta = document.getElementById('resposta');
   const imgCapa = document.getElementById('capa');
   const select = document.getElementById('album-select').tomselect;

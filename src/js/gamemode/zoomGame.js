@@ -2,6 +2,7 @@ import { setAlbum, setAlbuns, albunsAtual, albumAtual,tentativas, inicioJogo, di
 import { preencherSelect, exibirCapa, atualizarVidas} from '@js/script.js';
 import { getArtistAlbums, escolherAlbumAleatorio} from '@js/spotify/spotify.js';
 import { mostrarResposta } from '@js/script.js';
+import { definirPontos, score } from '../config/gameConfig';
 
 export async function modoZoom(idArtista) {
     inicioJogo();
@@ -23,8 +24,10 @@ export async function modoZoom(idArtista) {
     if (selectAlbum) selectAlbum.enable?.();
     if(btnPular) btnPular.textContent = `PULAR (${pulos})`
 
+    //primeira instancia:
     if (!albunsAtual || albunsAtual.length === 0) {
         const listaAlbuns = await getArtistAlbums(idArtista);
+        definirPontos(listaAlbuns);
         setAlbuns(listaAlbuns);
     }
 
@@ -34,9 +37,18 @@ export async function modoZoom(idArtista) {
         setAlbuns(novaLista);
     }
 
-    // Fim do jogo
+    // Fim do jogo/discografia
     if (!albunsAtual || albunsAtual.length === 0) {
         alert('Você chegou ao fim da discogradia desse artista!');
+        const estatisticas = `
+        Seu Score:
+        Acertos: ${score.acertos}/${score.maxAcertos}
+        Pontos: ${score.pontos}/${score.maxPontos}
+
+        Flawless: ${score.pontos === score.maxPontos && score.maxAcertos === score.acertos}
+        `
+        console.clear()
+        console.log(estatisticas)
         selectAlbum?.disable?.();
         return;
     }

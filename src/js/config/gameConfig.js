@@ -5,6 +5,15 @@ export let tentativas = 4;
 export let vidas = 5;
 export let pulos = 3;
 
+//score: pontuaçao e estatisticas do jogo
+export let score = {
+    maxAcertos: 0,
+    maxPontos: 0,
+    acertos: 0,
+    pontos: 0,
+    flawless: false,
+}
+
 export function inicioJogo() {
     tentativas = 4;
     adivinhado = false;
@@ -21,6 +30,13 @@ export function resetarTentativas() {
 
 export function marcarAdivinhado() {
     adivinhado = true;
+    score.acertos++;
+    score.pontos+= getVidas();
+}
+
+export function definirPontos(lista) {
+    score.maxPontos = lista.length * 5;
+    score.maxAcertos = lista.length;
 }
 
 export function setAlbuns(lista) {
@@ -30,7 +46,6 @@ export function setAlbuns(lista) {
 export function setAlbum(album) {
     albumAtual = album;
 }
-
 
 export function getVidas() {
     return vidas;
