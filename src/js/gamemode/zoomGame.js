@@ -56,7 +56,7 @@ export async function modoZoom(idArtista) {
         modoZoom(idArtista);
     }, { once: true });
 
-    if (btnPular && !adivinhado && pulos > 0) {
+    if (btnPular && !adivinhado && pulos > 0 && getVidas() > 1) {
         btnPular.disabled = false;
         btnPular.onclick = () => {
             mostrarResposta(albumAtual.name);

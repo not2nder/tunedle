@@ -15,7 +15,7 @@
 }
 
 .hard:hover {
-    background-color: rgb(198, 28, 59);
+    background-color: rgb(211, 38, 70);
 }
 
 .button {
@@ -38,14 +38,12 @@
 
 button:disabled,
 button[disabled]{
-    background-color: rgb(207, 196, 196);
-    box-shadow: 0px 4px 0px 0px#887676;
+    background-color: rgb(225, 225, 225);
+    box-shadow: 0px 4px 0px 0px#9c9c9c;
     color: #1e1e1e !important;
     cursor: inherit;
 }
 
 button[disabled]:hover{
-    background-color: rgb(211, 201, 201);
-    box-shadow: 0px 4px 0px 0px#887676;
-    color: #2d2d2d !important;
+    background-color: rgb(209, 209, 209);
 }

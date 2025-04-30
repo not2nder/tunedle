@@ -60,7 +60,7 @@ export function verificarPalpite(tentativaUsuario, resposta) {
     li.textContent = `✔️ ${tentativaUsuario}`;
 
     document.getElementById('pular-album').disabled = true;
-
+    
     registrarPontos(artista, tentativas*5);
     registrarAcerto(artista);
     
