@@ -19,6 +19,7 @@
 }
 
 .button {
+    color-scheme: only light;
     outline: none;
     border: none;
     border-radius: 7px;
@@ -28,8 +29,13 @@
     font-size: 19px;
 
     padding: 0.4rem 0;
+    justify-content: center;
+    align-items: center;
 
     transition: none;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .button span {
