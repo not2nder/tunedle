@@ -2,18 +2,12 @@
     /* border: 1px solid black; */
     text-decoration: none;
     background-color: #fff;
-    box-shadow: 0 3px 10px 0 rgb(0, 0, 0);
     flex-direction: column;
 
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-font-smoothing: antialiased;
     -webkit-user-select: none;
-
-    border: 1px rgba(2, 0, 6, 0.852) solid;
-    box-shadow:
-        inset 0px 1px 0px 0px rgb(171, 171, 171),
-        0px 3px 0px 0px rgba(2, 0, 6, 0.852);
 
     border-radius: 7px;
 }
@@ -74,8 +68,13 @@
     margin-inline: 2px;
 }
 
+.list-group-item {
+    border: none;
+}
+
 @media (pointer: coarse) {
     .card-hover:hover {
         transform: none;
     }
 }
+

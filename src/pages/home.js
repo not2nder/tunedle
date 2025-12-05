@@ -5,32 +5,21 @@ import '@styles/global.css';
 import TomSelect from 'tom-select';
 
 document.querySelector('#app').innerHTML = /*html*/`
-<div style="background: linear-gradient(45deg,rgba(139, 206, 151, 1) 0%, rgba(26, 123, 127, 1) 41%, rgba(6, 70, 107, 1) 100%)">
+<header class="w-100 py-4 px-5 d-flex align-items-center justify-content-between">
+  <h2>🎵 Tunedle</h2>
+
+  <nav class="d-flex gap-3">
+    <a href="https://instagram.com/not2nder" class="text-white fw-semibold">Contato</a>
+  </nav>
+</header>
+
+<div class="background">
   <div class="page d-flex flex-column min-vh-100">
     <main class="page-container px-3 flex-grow-1">
       <div>
         <h1 class="pulse main-text" id="text-pulse"></h1>
       </div>
       <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card card-hover p-4 d-flex flex-column justify-content-between">
-            <div>
-              <h3><i class="fa-solid fa-music"></i> Tunedle</h3>
-              <p>
-                Tente adivinhar o nome de um álbum apenas olhando a capa — quanto mais rápido, melhor!
-                No <strong>Modo Zoom</strong>, a imagem é revelada aos poucos... consegue acertar antes de ver tudo?
-              </p>
-              <p> Mais modos em breve!</p>
-              <p class="text-muted small">Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.</p>
-            </div>
-            <span>Apoie o Desenvolvedor:</span>
-            <div>
-              <a href="https://github.com/not2nder"><i class="fa-brands fa-github"></i></a>
-              <a href="https://instagram.com/2nder.dev"><i class="fa-brands fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-
         <div class="col-md-6">
           <div class="card card-hover p-4 h-100">
             <h4 class="mb-3"><i class="fa-solid fa-gamepad"></i> Modos de Jogo</h4>
@@ -47,6 +36,25 @@ document.querySelector('#app').innerHTML = /*html*/`
                 </button>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="card card-hover p-4 d-flex flex-column justify-content-between">
+            <div>
+              <h3><i class="fa-solid fa-music"></i> Tunedle</h3>
+              <p>
+                Tente adivinhar o nome de um álbum apenas olhando a capa — quanto mais rápido, melhor!
+                No <strong>Modo Zoom</strong>, a imagem é revelada aos poucos... consegue acertar antes de ver tudo?
+              </p>
+              <p> Mais modos em breve!</p>
+              <p class="text-muted small">Versão 1.0 • Desenvolvido por <strong>not2nder</strong>.</p>
+            </div>
+            <span>Apoie o Desenvolvedor:</span>
+            <div>
+              <a href="https://github.com/not2nder"><i class="fa-brands fa-github"></i></a>
+              <a href="https://instagram.com/not2nder"><i class="fa-brands fa-instagram"></i></a>
+            </div>
           </div>
         </div>
       </div>
