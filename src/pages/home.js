@@ -20,7 +20,7 @@ document.querySelector('#app').innerHTML = /*html*/`
         <h1 class="pulse main-text" id="text-pulse"></h1>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mb-4">
           <div class="card card-hover p-4 h-100">
             <h4 class="mb-3"><i class="fa-solid fa-gamepad"></i> Modos de Jogo</h4>
             <div class="py-3">
