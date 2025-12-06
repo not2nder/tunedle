@@ -1,7 +1,5 @@
 .card {
-    /* border: 1px solid black; */
     text-decoration: none;
-    background-color: #fff;
     flex-direction: column;
 
     user-select: none;
