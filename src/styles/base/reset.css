@@ -3,6 +3,7 @@
 * {
     font-family: "Source Sans 3", sans-serif;
     box-sizing: border-box;
+    -webkit-user-drag: none;
 }
 
 html, body {
