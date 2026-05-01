@@ -18,6 +18,11 @@ a {
     text-decoration: none;
 }
 
+img {
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
 button, img {
     user-select: none;
     -webkit-user-drag: none;
